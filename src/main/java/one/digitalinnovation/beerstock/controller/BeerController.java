@@ -1,5 +1,5 @@
 package one.digitalinnovation.beerstock.controller;
-
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.beerstock.dto.BeerDTO;
 import one.digitalinnovation.beerstock.dto.QuantityDTO;
 import one.digitalinnovation.beerstock.exception.BeerAlreadyRegisteredException;
@@ -15,15 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/beers")
-//@AllArgsConstructor(onConstructor = @__(@Autowired))
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BeerController implements BeerControllerDocs {
 
-    @Autowired
-    private final BeerService beerService;
 
-    public BeerController(BeerService beerService) {
-        this.beerService = beerService;
-    }
+    private final BeerService beerService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
